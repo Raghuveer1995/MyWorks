@@ -1,0 +1,65 @@
+﻿@page
+@model CoreCrud.Pages.Destinations.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Destination</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Destination.ID" />
+            <div class="form-group">
+                <label asp-for="Destination.Name" class="control-label"></label>
+                <input asp-for="Destination.Name" class="form-control" />
+                <span asp-validation-for="Destination.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.From" class="control-label"></label>
+                <input asp-for="Destination.From" class="form-control" />
+                <span asp-validation-for="Destination.From" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.To" class="control-label"></label>
+                <input asp-for="Destination.To" class="form-control" />
+                <span asp-validation-for="Destination.To" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Destination.LongVacationDestination" /> @Html.DisplayNameFor(model => model.Destination.LongVacationDestination)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.PricePerPerson" class="control-label"></label>
+                <input asp-for="Destination.PricePerPerson" class="form-control" />
+                <span asp-validation-for="Destination.PricePerPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.FamousPlace" class="control-label"></label>
+                <input asp-for="Destination.FamousPlace" class="form-control" />
+                <span asp-validation-for="Destination.FamousPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination.CountryID" class="control-label"></label>
+                <select asp-for="Destination.CountryID" class="form-control" asp-items="ViewBag.CountryID"></select>
+                <span asp-validation-for="Destination.CountryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreCrud.Migrations
 {
     [DbContext(typeof(CoreCrudContext))]
-    [Migration("20190906032515_Initial")]
+    [Migration("20190910155456_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace CoreCrud.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<decimal>("PricePerPerson");
+                    b.Property<decimal?>("PricePerPerson");
 
                     b.Property<DateTime>("To");
 

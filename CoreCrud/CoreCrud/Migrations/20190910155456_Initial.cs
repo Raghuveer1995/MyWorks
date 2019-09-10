@@ -31,7 +31,7 @@ namespace CoreCrud.Migrations
                     From = table.Column<DateTime>(nullable: false),
                     To = table.Column<DateTime>(nullable: false),
                     LongVacationDestination = table.Column<bool>(nullable: false),
-                    PricePerPerson = table.Column<decimal>(nullable: false),
+                    PricePerPerson = table.Column<decimal>(nullable: true),
                     FamousPlace = table.Column<string>(nullable: true),
                     CountryID = table.Column<string>(nullable: true)
                 },

@@ -16,7 +16,7 @@ namespace CoreCrud.Models
         [DataType(DataType.Date)]
         public DateTime To { get; set; }
         public bool LongVacationDestination { get; set; }
-        public decimal PricePerPerson { get; set; }
+        public decimal? PricePerPerson { get; set; }
         public string FamousPlace { get; set; }
         public string CountryID { get; set; }
         public Country Country { get; set; }

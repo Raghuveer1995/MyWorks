@@ -49,7 +49,7 @@ namespace CoreCrud.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<decimal>("PricePerPerson");
+                    b.Property<decimal?>("PricePerPerson");
 
                     b.Property<DateTime>("To");
 

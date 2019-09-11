@@ -19,6 +19,6 @@ namespace CoreCrud.Models
         public decimal? PricePerPerson { get; set; }
         public string FamousPlace { get; set; }
         public string CountryID { get; set; }
-        public Country Country { get; set; }
+        public Country Location { get; set; }
     }
 }

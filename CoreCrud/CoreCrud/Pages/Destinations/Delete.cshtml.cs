@@ -29,7 +29,7 @@ namespace CoreCrud.Pages.Destinations
             }
 
             Destination = await _context.Destination
-                .Include(d => d.Country).FirstOrDefaultAsync(m => m.ID == id);
+                .Include(d => d.Location).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Destination == null)
             {

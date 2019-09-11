@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreCrud.Migrations
 {
     [DbContext(typeof(CoreCrudContext))]
-    [Migration("20190910155456_Initial")]
+    [Migration("20190911035839_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,7 @@ namespace CoreCrud.Migrations
 
             modelBuilder.Entity("CoreCrud.Models.Destination", b =>
                 {
-                    b.HasOne("CoreCrud.Models.Country", "Country")
+                    b.HasOne("CoreCrud.Models.Country", "Location")
                         .WithMany("Destinations")
                         .HasForeignKey("CountryID");
                 });

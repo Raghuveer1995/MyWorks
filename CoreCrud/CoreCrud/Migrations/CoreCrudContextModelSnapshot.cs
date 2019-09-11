@@ -62,7 +62,7 @@ namespace CoreCrud.Migrations
 
             modelBuilder.Entity("CoreCrud.Models.Destination", b =>
                 {
-                    b.HasOne("CoreCrud.Models.Country", "Country")
+                    b.HasOne("CoreCrud.Models.Country", "Location")
                         .WithMany("Destinations")
                         .HasForeignKey("CountryID");
                 });

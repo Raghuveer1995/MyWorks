@@ -23,7 +23,7 @@ namespace CoreCrud.Pages.Destinations
         public async Task OnGetAsync()
         {
             Destination = await _context.Destination
-                .Include(d => d.Country).ToListAsync();
+                .Include(d => d.Location).ToListAsync();
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCrud", "CoreCrud\CoreCrud.csproj", "{145AC06F-E808-42EE-A84D-577044C75A0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreCrud", "CoreCrud\CoreCrud.csproj", "{145AC06F-E808-42EE-A84D-577044C75A0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

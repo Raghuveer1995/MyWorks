@@ -22,7 +22,7 @@ namespace CoreCrud.Pages.Countries
         [BindProperty]
         public Country Country { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
@@ -66,7 +66,7 @@ namespace CoreCrud.Pages.Countries
             return RedirectToPage("./Index");
         }
 
-        private bool CountryExists(string id)
+        private bool CountryExists(int id)
         {
             return _context.Country.Any(e => e.ID == id);
         }

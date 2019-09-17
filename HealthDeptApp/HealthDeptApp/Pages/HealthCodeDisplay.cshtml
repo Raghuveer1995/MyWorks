@@ -1,0 +1,37 @@
+﻿@page
+@model HealthDeptApp.Pages.HealthCodeDisplayModel
+@{
+    ViewData["Title"] = "HealthCodeDisplay";
+}
+
+<h1>HealthCodeDisplay</h1>
+
+<h2>@Model.pageInformation</h2>
+<h2>@Model.pageInformation1</h2>
+
+<ul>
+    @foreach(var code in Model.HealthCodes)
+    {
+        <li>@code.Category - @code.Regulation</li>
+    }
+</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Regulation</th>
+            <th>Category</th>
+            <th>Dexcription</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var code in Model.HealthCodes)
+        {
+            <tr>
+                <td>@code.Regulation</td>
+                <td>@code.Category</td>
+                <td>@code.Position</td>
+            </tr>
+        }
+    </tbody>
+</table>

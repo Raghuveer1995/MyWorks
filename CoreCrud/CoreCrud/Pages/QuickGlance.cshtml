@@ -1,0 +1,58 @@
+﻿@page
+@model CoreCrud.Pages.QuickGlanceModel
+@{
+    ViewData["Title"] = "QuickGlance";
+}
+
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
+<h1>Quick Glance of Destinations</h1>
+<br/>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price Per person</th>
+            <th>Famous Place</th>
+            <th>Location</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dest in Model.Destinations)
+        {
+        <tr>
+            <td>@dest.Name</td>
+            <td>@dest.PricePerPerson</td>
+            <td>@dest.FamousPlace</td>
+            <td>@dest.Location.Name</td>
+            <td>
+                @if (@dest.Rating == 5)
+                {
+                    <span class="badge badge-pill badge-success">5/5</span>
+                }
+                else if (@dest.Rating == 4)
+                {
+                    <span class="badge badge-pill badge-primary">4/5</span>
+                }
+                else if (@dest.Rating == 3)
+                {
+                    <span class="badge badge-pill badge-secondary">3/5</span>
+                }
+                else if (@dest.Rating == 2)
+                {
+                    <span class="badge badge-pill badge-warning">2/5</span>
+                }
+                else
+                {
+                    <span class="badge badge-pill badge-danger">1/5</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

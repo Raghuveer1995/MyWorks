@@ -68,3 +68,53 @@
     <li>International Travel</li>
     <li>Group Travel</li>
 </ul>
+<br />
+<br />
+<br />
+<h2>Dashboard</h2>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th colspan="2">Statistics</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Number of Destinations in India</td>
+            <td>@Model.NumberOfIndiaDestinations</td>
+        </tr>
+        <tr>
+            <td>Number of Destinations in USA</td>
+            <td>@Model.NumberOfUSADestinations</td>
+        </tr>
+        <tr>
+            <td>Number of Long Vacation Destinations</td>
+            <td>@Model.NumberOfLongTermDestinations</td>
+        </tr>
+        <tr>
+            <td>Number of Expensive Destinations</td>
+            <td>@Model.NumberOfExpensiveDestinations</td>
+        </tr>
+        <tr>
+            <td>Number of Cheap Destinations</td>
+            <td>@Model.NumberOfCheapDestinations</td>
+        </tr>
+        <tr>
+            <td>Number of Destinations with 5 Star Rating</td>
+            <td>@Model.NumberOfFiveStarRatingDestinations</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+<br/>
+<p><b>Following are the sample links for Country Profile Page:</b></p>
+<a href="/CountryProfile?id=1" target="_blank">This link shows the Destinations in India (id=1)</a><br/>
+<a href="/CountryProfile?id=2" target="_blank">This link shows the Destinations in USA (id=2)</a><br/>
+<a href="/CountryProfile?id=5" target="_blank">This link shows the Destinations in Italy (id=5)</a>
+<br/>
+<br />
+<p><b>Following links naviagtes to the Quick Glance page of the Destinations</b></p>
+<a href="/QuickGlance" target="_blank">Quick Glance of the Destinations</a>
+<br/>
+<br />
+<br />

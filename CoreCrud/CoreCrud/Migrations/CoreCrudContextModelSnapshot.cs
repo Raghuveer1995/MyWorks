@@ -21,8 +21,9 @@ namespace CoreCrud.Migrations
 
             modelBuilder.Entity("CoreCrud.Models.Country", b =>
                 {
-                    b.Property<string>("ID")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Continent");
 
@@ -39,7 +40,7 @@ namespace CoreCrud.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CountryID");
+                    b.Property<int>("CountryID");
 
                     b.Property<string>("FamousPlace");
 
@@ -64,7 +65,8 @@ namespace CoreCrud.Migrations
                 {
                     b.HasOne("CoreCrud.Models.Country", "Location")
                         .WithMany("Destinations")
-                        .HasForeignKey("CountryID");
+                        .HasForeignKey("CountryID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

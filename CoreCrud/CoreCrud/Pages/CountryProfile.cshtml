@@ -1,0 +1,43 @@
+﻿@page
+@model CoreCrud.Pages.CountryProfileModel
+@{
+    ViewData["Title"] = "CountryProfile";
+}
+
+<h1 style="text-align:center;"><font color="#808080">Country Profile</font></h1>
+
+<h3><b><font color="#800000"><i>@Model.Country.Name</i></font> has the following Destinations</b></h3>
+<br/>
+@foreach (var dest in Model.Country.Destinations)
+{
+    <div class="card card border-secondary mb-3">
+        <div class="card-body  text-secondary">
+            <h5 class="card-title"><font color="#0000A0"><b>@dest.Name</b></font></h5>
+            <p class="card-text"><b>Best Time to Visit:</b></p>
+            <p><i>From:</i>@dest.From  <i>To:</i>@dest.To</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Famous Place: @dest.FamousPlace</li>
+                @if (@dest.PricePerPerson <= 150)
+                {
+                    <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-success">Cheap</span></li>
+                }
+                else if (@dest.PricePerPerson > 150 && @dest.PricePerPerson <= 300)
+                {
+                    <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-primary">Medium Expensive</span></li>
+                }
+                else if (@dest.PricePerPerson > 300 && @dest.PricePerPerson <= 500)
+                {
+                    <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-warning">Expensive</span></li>
+                }
+                else
+                {
+                    <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-danger">Very Expensive</span></li>
+                }
+                <li class="list-group-item">Is this Long term Destination: @dest.LongVacationDestination</li>
+            </ul>
+        </div>
+    </div>
+    <br/>
+}
+
+

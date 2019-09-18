@@ -17,15 +17,15 @@
             <p><i>From:</i>@dest.From  <i>To:</i>@dest.To</p>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Famous Place: @dest.FamousPlace</li>
-                @if (@dest.PricePerPerson <= 150)
+                @if (@dest.Rating == 5)
                 {
                     <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-success">Cheap</span></li>
                 }
-                else if (@dest.PricePerPerson > 150 && @dest.PricePerPerson <= 300)
+                else if (@dest.Rating == 4)
                 {
                     <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-primary">Medium Expensive</span></li>
                 }
-                else if (@dest.PricePerPerson > 300 && @dest.PricePerPerson <= 500)
+                else if (@dest.Rating == 3)
                 {
                     <li class="list-group-item">Price per Person: @dest.PricePerPerson <span class="badge badge-warning">Expensive</span></li>
                 }

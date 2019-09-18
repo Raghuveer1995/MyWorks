@@ -28,7 +28,20 @@
             <td>@dest.Name</td>
             <td>@dest.PricePerPerson</td>
             <td>@dest.FamousPlace</td>
-            <td>@dest.Location.Name</td>
+            <td>
+                @if (@dest.Location.Name == "India")
+                {
+                    <span class="badge badge-light">@dest.Location.Name</span>
+                }
+                else if (@dest.Location.Name == "USA")
+                {
+                    <span class="badge badge-info">@dest.Location.Name</span>
+                }
+                else
+                {
+                    @dest.Location.Name
+                }
+            </td>
             <td>
                 @if (@dest.Rating == 5)
                 {

@@ -20,7 +20,7 @@ namespace CoreCrud.Pages.Destinations
 
         public IActionResult OnGet()
         {
-        ViewData["CountryID"] = new SelectList(_context.Set<Country>(), "ID", "ID");
+        ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
             return Page();
         }
 
@@ -31,6 +31,7 @@ namespace CoreCrud.Pages.Destinations
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
                 return Page();
             }
 

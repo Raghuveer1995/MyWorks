@@ -1,0 +1,64 @@
+﻿
+@page
+@model EstablishmentProfileModel
+@{
+    ViewData["title"] = $"Establishment Profile: {Model.Establishment.Name}";
+}
+<h1>Establishment Profile</h1>
+<h2>@Model.Establishment.Name</h2>
+<div class="row">
+
+    <div class="col-md-6">
+        <h3>Establishment Details</h3>
+        <dl>
+            <dd>Opened Date</dd>
+            <dt>@Model.Establishment.OpenDate</dt>
+            <dd>Grade</dd>
+            <dt>@Model.Establishment.Grade</dt>
+
+            <dd>Closed Date</dd>
+            <dt>
+                @if (Model.Establishment.IsOpen)
+                {
+                    <text>N/A</text>
+                }
+                else
+                {
+                    @Model.Establishment.ClosedDate
+                }
+            </dt>
+            <dd>Employees</dd>
+            <dt>@Model.Establishment.EmployeeCount</dt>
+            <dd>Has Liquor License</dd>
+            <dt>@Model.Establishment.HasLiquorLicense</dt>
+            <dd>Address</dd>
+            <dt>
+                <address>
+                    @Model.Establishment.Address<br />
+                    @Model.Establishment.City,
+                    @Model.Establishment.State&nbsp;&nbsp;@Model.Establishment.Zip<br />
+                </address>
+            </dt>
+            <dd>Establishment Category</dd>
+            <dt>@Model.Establishment.Category.Name</dt>
+            <dd>Inspection Frequency</dd>
+            <dt>Every @Model.Establishment.Category.InspectionFrequency days</dt>
+            <dd>Next Inspection</dd>
+            <dt>@Model.Establishment.NextInspection (approx)</dt>
+        </dl>
+
+    </div>
+    <div class="col-md-6">
+        <h3>Recent Inspection History</h3>
+        <ul>
+            @foreach (var inspection in Model.Establishment.RecentInspections)
+            {
+                <li>
+                    Date=@inspection.DateInspected
+                    Score=@inspection.Score
+                    Agent=@inspection.Agent.FirstName @inspection.Agent.LastName
+                </li>
+            }
+        </ul>
+    </div>
+</div>

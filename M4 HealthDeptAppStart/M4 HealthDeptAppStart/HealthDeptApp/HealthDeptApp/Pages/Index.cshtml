@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="alert alert-danger" style="margin-top: 20px;">
+    <p>
+        In order to generate the sample data run the web application
+        from the Package Manager Console with command <br />
+        <code>dotnet run seed --environment production --project HealthDeptApp</code><br />
+    </p>
+</div>
+
+
+<h1>Dashboard</h1>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Statistics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Active Agents</td>
+                    <td class="text-right">@Model.CountOfActiveAgents</td>
+                </tr>
+                <tr>
+                    <td>Agents on Leave</td>
+                    <td class="text-right">@Model.CountOfAgentsOnLeave</td>
+                </tr>
+                <tr>
+                    <td>Open Establishments</td>
+                    <td class="text-right">@Model.CountOfOpenEstablishments</td>
+                </tr>
+                <tr>
+                    <td>Inspections Completed Last Week</td>
+                    <td class="text-right">@Model.CountOfInspectionsCompletedLastWeek</td>
+                </tr>
+                <tr>
+                    <td>Open Inspections</td>
+                    <td class="text-right">@Model.CountOfOpenInspections</td>
+                </tr>
+                <tr>
+                    <td>Food Service Employees</td>
+                    <td class="text-right">@Model.CountOfFoodServiceEmployees.ToString("N0")</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,27 @@
+﻿@page
+@model HealthDeptApp.Pages.HealthCodeDisplayModel
+@{
+}
+
+
+<h1>Health Code Regulations</h1>
+<p>The following Chicago, IL health codes regulations are to be used for health inspections</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Regulation</th>
+            <th>Description</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var code in Model.HealthCodes)
+        {
+            <tr>
+                <td class="text-right">#@code.Position</td>
+                <td>@code.Regulation</td>
+                <td>@code.Category</td>
+            </tr>
+        }
+    </tbody>
+</table>

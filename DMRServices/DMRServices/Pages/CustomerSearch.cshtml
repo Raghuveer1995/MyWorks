@@ -1,0 +1,65 @@
+﻿@page
+@model DMRServices.Pages.CustomerSearchModel
+@{
+    ViewData["Title"] = "CustomerSearch";
+}
+
+<h1>CustomerSearch</h1>
+
+
+<form action="" method="POST" style="margin-top: 50px;">
+    <div class="form-group">
+        <label class="control-label" for="search">Customer Name</label>
+        <input type="text" class="form-control" name="search" id="search" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search Customers" class="btn btn-default" />
+    </div>
+</form>
+
+@if (Model.SearchCompletion)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.RetrievedCustomers.Count > 0)
+            {
+                @foreach (var cust in Model.RetrievedCustomers)
+                {
+                    <tr>
+                        <td>@cust.FirstName</td>
+                        <td>@cust.LastName</td>
+                        <td>@cust.Email</td>
+                        <td>
+                            <a asp-page="/CustomerProfile" asp-route-id="@cust.ID">Cases and Orders</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No Customers found with Name '"@Model.Search"'
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>
+            Please enter customer name into the box and click on <strong><i>Search</i></strong>
+        </p>
+    </div>
+}

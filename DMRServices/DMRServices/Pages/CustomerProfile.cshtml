@@ -1,0 +1,92 @@
+﻿@page
+@model DMRServices.Pages.CustomerProfileModel
+@{
+    ViewData["Title"] = "CustomerProfile";
+}
+
+<h1>CustomerProfile</h1>
+<h1 style="text-align:center;"><font color="#808080">Customer Profile</font></h1>
+
+<div class="accordion" id="accordionDisplay">
+    <div class="card">
+        <div class="card-header" id="casesDisplay">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Cases
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDisplay">
+            <div class="card-body">
+                @foreach (var cs in Model.customer.Cases)
+                {
+                    <div class="card card border-secondary mb-3">
+                        <div class="card-body  text-secondary">
+                            <h5 class="card-title"><font color="#0000A0"><b>Case Type: @cs.Type</b></font></h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Created Date: @cs.CreatedDate</li>
+                                <li class="list-group-item">Priority: @cs.Priority</li>
+                                <li class="list-group-item">Status: @cs.Status</li>
+                                <li class="list-group-item">Remarks: @cs.Remarks</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="ordersDisplay">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Orders
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDisplay">
+            <div class="card-body">
+                @foreach (var ord in Model.customer.Orders)
+                {
+                    <div class="card card border-secondary mb-3">
+                        <div class="card-body  text-secondary">
+                            <h5 class="card-title"><font color="#0000A0"><b>Order Id: @ord.ID</b></font></h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Created Date: @ord.CraetedDate</li>
+                                <li class="list-group-item">Delivery Date: @ord.DeliveryDate</li>
+                                <li class="list-group-item">Status: @ord.Status</li>
+                                <br />
+                                <div class="row">
+                                    @foreach (var ordItem in ord.OrderLineItems)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Product: @ordItem.Product.Name</h5>
+                                                    <p class="card-text">Quantity: @ordItem.Quantity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <br />
+                }
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<br />
+
+
+
+

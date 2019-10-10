@@ -5,38 +5,36 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using CoreCrud.Models;
+using DMRServices.Models;
 
-namespace CoreCrud.Pages.Destinations
+namespace DMRServices.Pages.Cases
 {
     public class CreateModel : PageModel
     {
-        private readonly CoreCrud.Models.CoreCrudContext _context;
+        private readonly DMRServices.Models.DMRServicesContext _context;
 
-        public CreateModel(CoreCrud.Models.CoreCrudContext context)
+        public CreateModel(DMRServices.Models.DMRServicesContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet()
         {
-        ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
-            
-            Destination.CountryID = id;
+        ViewData["CustomerId"] = new SelectList(_context.Customer, "ID", "LastName");           
             return Page();
         }
 
         [BindProperty]
-        public Destination Destination { get; set; }
+        public Case Case { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
                 return Page();
-            }            
-            _context.Destination.Add(Destination);
+            }
+
+            _context.Case.Add(Case);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

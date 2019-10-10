@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreCrud.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using CoreCrud.Models;
 
-namespace CoreCrud.Pages.Destinations
+namespace CoreCrud.Pages
 {
-    public class CreateModel : PageModel
+    public class TestModel : PageModel
     {
         private readonly CoreCrud.Models.CoreCrudContext _context;
 
-        public CreateModel(CoreCrud.Models.CoreCrudContext context)
+        public TestModel(CoreCrud.Models.CoreCrudContext context)
         {
             _context = context;
         }
-
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet()
         {
-        ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
-            
-            Destination.CountryID = id;
+            ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
+            //Destination.CountryID = id;
             return Page();
         }
-
-        [BindProperty]
         public Destination Destination { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +31,7 @@ namespace CoreCrud.Pages.Destinations
             {
                 ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
                 return Page();
-            }            
+            }
             _context.Destination.Add(Destination);
             await _context.SaveChangesAsync();
 

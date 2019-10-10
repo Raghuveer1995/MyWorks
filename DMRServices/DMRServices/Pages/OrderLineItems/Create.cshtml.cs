@@ -5,38 +5,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using CoreCrud.Models;
+using DMRServices.Models;
 
-namespace CoreCrud.Pages.Destinations
+namespace DMRServices.Pages.OrderLineItems
 {
     public class CreateModel : PageModel
     {
-        private readonly CoreCrud.Models.CoreCrudContext _context;
+        private readonly DMRServices.Models.DMRServicesContext _context;
 
-        public CreateModel(CoreCrud.Models.CoreCrudContext context)
+        public CreateModel(DMRServices.Models.DMRServicesContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet()
         {
-        ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
-            
-            Destination.CountryID = id;
+        ViewData["OrderId"] = new SelectList(_context.Set<Order>(), "ID", "ID");
+        ViewData["ProductId"] = new SelectList(_context.Set<Product>(), "ID", "Name");
             return Page();
         }
 
         [BindProperty]
-        public Destination Destination { get; set; }
+        public OrderLineItem OrderLineItem { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                ViewData["CountryID"] = new SelectList(_context.Country, "ID", "Name");
                 return Page();
-            }            
-            _context.Destination.Add(Destination);
+            }
+
+            _context.OrderLineItem.Add(OrderLineItem);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

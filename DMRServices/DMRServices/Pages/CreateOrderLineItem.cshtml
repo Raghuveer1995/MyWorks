@@ -1,0 +1,32 @@
+﻿@page
+@model CreateOrderLineItemModel
+@{
+}
+
+<h1>CreateOrderLineItem</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+            <div class="form-group">
+                <label asp-for="orderLineItem.OrderId" class="control-label">Order Id: orderLineItem.OrderId</label>
+                <input type="hidden" asp-for="orderLineItem.OrderId" class="form-control" />
+                <span asp-validation-for="orderLineItem.OrderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="orderLineItem.ProductId" class="control-label"></label>
+                <select asp-for="orderLineItem.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                <span asp-validation-for="orderLineItem.ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="orderLineItem.Quantity" class="control-label"></label>
+                <input asp-for="orderLineItem.Quantity" class="form-control" />
+                <span asp-validation-for="orderLineItem.Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create Order Line Item" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>

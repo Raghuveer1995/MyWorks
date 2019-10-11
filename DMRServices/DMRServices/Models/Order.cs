@@ -22,6 +22,8 @@ namespace DMRServices.Models
         public Customer Customer { get; set; }
         public ICollection<OrderLineItem> OrderLineItems { get; set; }
 
+        
+
         public static ValidationResult PastDeliveryDateValidation(DateTime? deliveryDate, ValidationContext context)
         {
             if (deliveryDate == null)

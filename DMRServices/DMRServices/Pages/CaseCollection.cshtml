@@ -4,7 +4,7 @@
     ViewData["Title"] = "CaseCollection";
 }
 
-<h1>CaseCollection</h1>
+<h1>Case Collection</h1>
 
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
@@ -27,19 +27,19 @@
                 <td>
                     @if (cs.Remarks == "In Progress")
                     {
-                        <span class="badge badge-pill badge-success">In Progress</span>
+                        <span class="badge badge-pill badge-primary">In Progress</span>
                     }
                     else if (cs.Remarks == "Case Closed in Time")
                     {
-                        <span class="badge badge-pill badge-primary">Case Closed in Time</span>
+                        <span class="badge badge-pill badge-success">Case Closed in Time</span>
                     }
                     else if (cs.Remarks == "Case Closed in Buffer Time")
                     {
-                        <span class="badge badge-pill badge-danger">Case Closed in Buffer Time</span>
+                        <span class="badge badge-pill badge-warning">Case Closed in Buffer Time</span>
                     }
                     else
                     {
-                        <span class="badge badge-pill badge-primary">Case Closure breached</span>
+                        <span class="badge badge-pill badge-danger">Case Closure breached</span>
                     }
                 </td>
             </tr>

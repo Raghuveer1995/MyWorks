@@ -49,7 +49,7 @@ namespace DMRServices.Models
                         }
                         else
                         {
-                            return "Case Closure breached";
+                            return "Case Closure Breached";
                         }
                     }
                     else if (Priority == "Medium")

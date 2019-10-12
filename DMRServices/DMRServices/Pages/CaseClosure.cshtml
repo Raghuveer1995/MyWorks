@@ -1,0 +1,30 @@
+﻿@page
+@model DMRServices.Pages.CaseClosureModel
+@{
+    ViewData["Title"] = "CaseClosure";
+}
+
+<h1>Want to close the Case</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+            <div class="form-group">
+                <label asp-for="CaseClosureForm.CaseId" class="control-label"><strong>Case Id: </strong>@Model.Case.ID</label>
+                <input type="hidden" asp-for="CaseClosureForm.CaseId" class="form-control" />
+                <span asp-validation-for="CaseClosureForm.CaseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CaseClosureForm.ClosureDate" class="control-label"></label>
+                <input asp-for="CaseClosureForm.ClosureDate" class="form-control" />
+                <span asp-validation-for="CaseClosureForm.ClosureDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Close Case" class="btn btn-danger" />
+            </div>
+        </form>
+
+    </div>
+</div>
+

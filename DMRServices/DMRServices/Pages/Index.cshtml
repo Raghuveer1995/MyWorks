@@ -4,7 +4,112 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-left" style="color:white;">
+    <h1 class="display-4 text-left;">Welcome</h1>
 </div>
+<style>
+    .lining {
+        font-size:25px;
+        text-align:left;
+        color:white;
+    }
+</style>
+
+<h1 style="font-size:60px;text-align:left;color:white;">DMR Services</h1>
+<h2 style="font-size:30px;text-align:left;color:white;">WE ARE LISTENING!</h2>
+<style>
+    body {
+        background-image: url('https://www.cirrushosting.com/wp-content/uploads/2018/05/crm-application-development-solutions-Advanz101-1500x430.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 50%;
+    }
+</style>
+
+<p class="lining">DMR Services has been developing and implementing</p>
+<p class="lining">innovative  strategies for industry, government, private </p>
+<p class="lining">sector and non- profit  organizations throughout the world.</p>
+<p class="lining">We listen and understand your business priorities, challenges,</p>
+<p class="lining">culture and audiences.Through collaboration we develop and </p>
+<p class="lining">streamline strategies, consultation and engagement</p>
+<p class="lining">efforts, communications, marketing, process and  tactics</p>
+<p class="lining">to help you reach your goals.</p>
+<center>
+    <img src="https://www.kedm.org/sites/kedm/files/styles/medium/public/201508/Quality_Service_Reliability_450px.png" alt="this is an image of collectibles" height="200" width="200">
+</center>
+
+<br />
+<br />
+<br />
+<h2>Dashboard</h2>
+
+<br />
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th colspan="2">Statistics</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total Number of Open Cases</td>
+            <td>@Model.TotalOpenCases</td>
+        </tr>
+        <tr>
+            <td>Cases Opened in Last Seven Days</td>
+            <td>@Model.OpenCasesInLastSevenDays</td>
+        </tr>
+        <tr>
+            <td>Cases Closed in Last Seven Days</td>
+            <td>@Model.ClosedCasesInLastSevenDays</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th colspan="2">Case Statistics based on Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Low Priority Cases</td>
+            <td>@Model.LowPriorityCasesInLastSevenDays</td>
+        </tr>
+        <tr>
+            <td>Medium Priority Cases</td>
+            <td>@Model.MediumPriorityCasesInLastSevenDays</td>
+        </tr>
+        <tr>
+            <td>High Priority Cases</td>
+            <td>@Model.HighPriorityCasesInLastSevenDays</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th colspan="2">Case Statistics based on Progress</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Cases Closed on Time</td>
+            <td>@Model.NumberOfCasesClosedOnTimeInLastSevenDays</td>
+        </tr>
+        <tr>
+            <td>Cases Closed in Buffer Time</td>
+            <td>@Model.NumberOfCasesClosedInBufferTimeInLastSevenDays</td>
+        </tr>
+        <tr>
+            <td>Cases Breached the SLA</td>
+            <td>@Model.NumberOfCasesBreachedInLastSevenDays</td>
+        </tr>
+    </tbody>
+</table>

@@ -20,7 +20,7 @@ namespace DMRServices.Pages.Cases
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Customer, "ID", "LastName");           
+        ViewData["CustomerId"] = new SelectList(_context.Customer, "ID", "LastName");                      
             return Page();
         }
 

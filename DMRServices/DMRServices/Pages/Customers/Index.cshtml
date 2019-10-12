@@ -5,19 +5,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Customers</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Customer</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].MiddleName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].LastName)
@@ -29,16 +26,7 @@
                 @Html.DisplayNameFor(model => model.Customer[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Gender)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Customer[0].DateOfBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].CreatedDate)
             </th>
             <th></th>
         </tr>
@@ -50,9 +38,6 @@
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MiddleName)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
@@ -62,16 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

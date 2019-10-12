@@ -33,7 +33,7 @@ namespace DMRServices.Pages
             RetrievedCustomers = _context.Customer
                                             .Include(x => x.Cases)
                                             .Include(x => x.Orders)
-                                            .Where(x => x.FirstName.ToLower().Contains(Search.ToLower()))
+                                            .Where(x => x.LastName.ToLower().Contains(Search.ToLower()))
                                             .ToList();
             SearchCompletion = true;
         }

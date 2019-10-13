@@ -95,9 +95,16 @@ namespace DMRServices.Models
             }
             if (statusValue == "Closed" && instance.ClosedDate == null)
             {
-                return new ValidationResult("Closed Date must be provided if Case type is Closed");
+                return new ValidationResult("Closed Date must be provided if Case Status is Closed");
             }
-            return ValidationResult.Success;
+            else if (statusValue == "Open" && instance.ClosedDate != null)
+            {
+                return new ValidationResult("Closed Date must not be provided if Case Status is Open");
+            }
+            else
+            {
+                return ValidationResult.Success;
+            }            
         }
 
         public static ValidationResult FutureClosedDateValidation(DateTime? closedDate, ValidationContext context)

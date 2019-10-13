@@ -12,6 +12,22 @@ namespace DMRServices.Models
 
         [Display(Name = "Closure Date")]
         [DataType(DataType.Date)]
+        [CustomValidation(typeof(CaseClosureForm), "CloseDateValidation")]
         public DateTime? ClosureDate { get; set; }
+
+        public static ValidationResult CloseDateValidation(DateTime? dateValue, ValidationContext context)
+        {
+            if (dateValue == null)
+            {
+                return ValidationResult.Success;
+            }
+            if (dateValue > DateTime.Today)
+            {
+                return new ValidationResult("Closed Date cannot be a Future Date");
+            }
+            return ValidationResult.Success;
+        }
     }
+
+    
 }

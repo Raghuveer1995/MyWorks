@@ -4,12 +4,12 @@
     ViewData["Title"] = "CustomerSearch";
 }
 
-<h1>CustomerSearch</h1>
+<h1>Want to Search a Customer?</h1>
 
 
 <form action="" method="POST" style="margin-top: 50px;">
     <div class="form-group">
-        <label class="control-label" for="search">Customer Last Name</label>
+        <label style="font-size:20px;" class="control-label" for="search"><strong>Customer Last Name</strong></label>
         <input type="text" class="form-control" name="search" id="search" />
     </div>
     <div class="form-group">
@@ -38,7 +38,7 @@
                         <td>@cust.LastName</td>
                         <td>@cust.Email</td>
                         <td>
-                            <a asp-page="/CustomerProfile" asp-route-id="@cust.ID">Cases and Orders</a>
+                            <a asp-page="/CustomerProfile" asp-route-id="@cust.ID">More Information</a>
                         </td>
                     </tr>
                 }

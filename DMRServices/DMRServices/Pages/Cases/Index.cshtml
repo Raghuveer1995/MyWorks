@@ -58,8 +58,11 @@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a> |
-                <a asp-page="/CaseClosure" asp-route-id="@item.ID">Close Case</a>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a> 
+                @if (item.Status != "Closed")
+                {
+                   <span> | </span><a asp-page="/CaseClosure" asp-route-id="@item.ID">Close Case</a>
+                }
             </td>
         </tr>
 }

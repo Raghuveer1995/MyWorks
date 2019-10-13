@@ -31,13 +31,14 @@ namespace DMRServices.Pages.Orders
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CustomerId"] = new SelectList(_context.Customer, "ID", "LastName");
                 return Page();
             }
 
             _context.Order.Add(Order);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Orders/Details", new { id = Order.ID });
+            return RedirectToPage("/Orders/Details", new { id = Order.ID });
         }
     }
 }

@@ -14,7 +14,7 @@
                 <span asp-validation-for="orderLineItem.OrderId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="orderLineItem.ProductId" class="control-label"></label>
+                <label asp-for="orderLineItem.ProductId" class="control-label">Product</label>
                 <select asp-for="orderLineItem.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
                 <span asp-validation-for="orderLineItem.ProductId" class="text-danger"></span>
             </div>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Create Order Line Item" class="btn btn-danger" />
+                <input type="submit" value="Create Order Line Item" class="btn btn-primary" />
             </div>
         </form>
     </div>

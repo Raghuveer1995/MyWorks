@@ -31,6 +31,7 @@ namespace DMRServices.Pages.Cases
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CustomerId"] = new SelectList(_context.Customer, "ID", "LastName");
                 return Page();
             }
 

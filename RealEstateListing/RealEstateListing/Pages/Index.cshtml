@@ -182,7 +182,7 @@
                 method: 'PUT',
                 data: JSON.stringify(requestData)
             }).done(function (responseData, status, xhr) {
-                loadAssets(); // RELOAD THE BOOK DATA
+                loadAssets(); 
                 if (callback) {
                     callback();
                 }
